@@ -9,17 +9,18 @@ import br.edu.ifsp.dmo1.listadecontatos.R
 import br.edu.ifsp.dmo1.listadecontatos.databinding.ContactItemLayoutBinding
 import br.edu.ifsp.dmo1.listadecontatos.model.Contact
 
-class ListContactAdapter(context: Context, data: List<Contact>): ArrayAdapter<Contact>(context, R.layout.contact_item_layout,data) {
+class ListContactAdapter(context: Context, data: List<Contact>) :
+    ArrayAdapter<Contact>(context, R.layout.contact_item_layout, data) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val binding: ContactItemLayoutBinding
-        if(convertView == null){
+        if (convertView == null) {
             binding = ContactItemLayoutBinding.inflate(
                 LayoutInflater.from(context),
                 parent,
                 false
             )
             binding.root.tag = binding
-        }else{
+        } else {
             binding = convertView.tag as ContactItemLayoutBinding
         }
         val currentContact = getItem(position)
