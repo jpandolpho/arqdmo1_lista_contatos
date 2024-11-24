@@ -7,6 +7,9 @@ object ContactDao {
 
     fun insert(contact: Contact) {
         dataset.add(Contact(contact.name, contact.phone))
+        val aux = dataset.sorted()
+        dataset.clear()
+        dataset.addAll(aux)
     }
 
     fun findAll(): List<Contact> {
