@@ -9,20 +9,20 @@
     tools:context=".view.MainActivity">
 
     <Button
+        android:id="@+id/button_new_contact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_new_contact"
         android:text="@string/new_contact"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
+        android:id="@+id/listview_contacts"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="24dp"
-        android:id="@+id/listview_contacts"
         app:layout_constraintBottom_toTopOf="@id/button_new_contact"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
