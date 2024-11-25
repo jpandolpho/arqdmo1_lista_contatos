@@ -27,14 +27,6 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if(savedInstanceState!=null){
-            val names = savedInstanceState.getStringArrayList("names")!!
-            val phones = savedInstanceState.getStringArrayList("phones")!!
-            for(i in names.indices){
-                ContactDao.insert(Contact(names[i],phones[i]))
-            }
-        }
-
         Log.v(TAG, "Executando o onCreate()")
         configClickListener()
         configListView()
@@ -126,18 +118,5 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         adapter = ListContactAdapter(this, listDatasource)
         binding.listviewContacts.adapter = adapter
         binding.listviewContacts.onItemClickListener = this
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        Log.v(TAG,"Salvando instancias")
-        val names = ArrayList<String>()
-        val phones = ArrayList<String>()
-        for(contact in ContactDao.findAll()){
-            names.add(contact.name)
-            phones.add(contact.phone)
-        }
-        outState.putStringArrayList("names",names)
-        outState.putStringArrayList("phones",phones)
     }
 }
